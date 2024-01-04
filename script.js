@@ -39,9 +39,8 @@ function playRound(playerSelection, computerSelection) {
         return loseAlert;
     } else if (player == "Rock" && computerSelection == "Rock") {
         winRound = null;
-        return tieAlert;
-        // console.log(tieAlert);
-        // playRound(playerSelection, computerSelection);
+        console.log(tieAlert);
+        return playRound();
     } else if (player == "Paper" && computerSelection == "Scissors") {
         winRound = false;
         return loseAlert;
@@ -50,14 +49,12 @@ function playRound(playerSelection, computerSelection) {
         return winAlert;
     }else if (player == "Paper" && computerSelection == "Paper") {
         winRound = null;
-        return tieAlert;
-        // console.log(tieAlert);
-        // playRound(playerSelection, computerSelection);
+        console.log(tieAlert);
+        return playRound();
     } else if (player == "Scissors" && computerSelection == "Scissors") {
         winRound = null;
-        return tieAlert;
-        // console.log(tieAlert);
-        // playRound(playerSelection, computerSelection);
+        console.log(tieAlert);
+        return playRound();
     }else if (player == "Scissors" && computerSelection == "Paper") {
         winRound = true;
         return winAlert;
@@ -68,6 +65,8 @@ function playRound(playerSelection, computerSelection) {
         winRound = null;
         return badChoice;
     }
+
+   
 
 }
 
@@ -93,11 +92,13 @@ function game() {
         }
 
         if (playerCount == 3) {
-            console.log(winGame);
+            console.log(winGame + `: You - ${playerCount} / CPU - ${computerCount}`);
+            return;
         }
 
         if (computerCount == 3) {
-            console.log(loseGame);
+            console.log(loseGame + `: You - ${playerCount} / CPU - ${computerCount}`);
+            return;
         }
     }
 
