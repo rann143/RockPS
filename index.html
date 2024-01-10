@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,11 +19,29 @@
     </div>
 
     <div class="game-output">
-        <div id="player"></div>
-        <div id="cpu"></div>
+        <div class="player-output">
+            <h3>You</h3>
+            <div id="player"></div>
+        </div>
+        
+        <div class="cpu-output">
+            <h3>CPU</h3>
+            <div id="cpu"></div>
+        </div>
     </div>
 
-    <span class="Result"></span>
+    <div id="round-outcome"></div>
+
+    <div class="score-board">
+        <div class="player-scoreboard">
+            <h3>Your Score</h3>
+            <span id="player-score"></span>
+        </div>
+        <div class="cpu-scoreboard">
+            <h3>CPU Score</h3>
+            <span id="cpu-score"></span>
+        </div>
+    </div>
     
 </body>
 </html>

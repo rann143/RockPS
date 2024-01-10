@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-output, .score-board {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.player-output, .cpu-output {
+    width: 75px;
+    border: solid 3px;
+    border-color: black;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.player-scoreboard, .cpu-scoreboard {
+    width: 125px;
+    border: solid 3px;
+    border-color: black;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
