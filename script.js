@@ -8,63 +8,110 @@ function getComputerChoice() {
 
 }
 
-function capitalize(string){
-    let lowered = string.toLowerCase();
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
 
-    let firstLetter = lowered.charAt(0);
-    let cappedFirstLetter = firstLetter.toUpperCase();
+rockBtn.addEventListener('click', () => {
+    playRound("Rock", getComputerChoice());
+})
 
-    let loweredNoFirst = lowered.slice(1);
+paperBtn.addEventListener('click', () => {
+    playRound("Paper", getComputerChoice());
+})
 
-    let result = cappedFirstLetter + loweredNoFirst;
-    return result;
-}
+scissorsBtn.addEventListener('click', () => {
+    playRound("Scissors", getComputerChoice());
+})
+
+// function capitalize(string){
+//     let lowered = string.toLowerCase();
+
+//     let firstLetter = lowered.charAt(0);
+//     let cappedFirstLetter = firstLetter.toUpperCase();
+
+//     let loweredNoFirst = lowered.slice(1);
+
+//     let result = cappedFirstLetter + loweredNoFirst;
+//     return result;
+// }
 
 function playRound(playerSelection, computerSelection) {
     
-    playerSelection = prompt("Choose Your Weapon.");
-    let player = capitalize(playerSelection);
-    computerSelection = getComputerChoice();
+    // playerSelection = prompt("Choose Your Weapon.");
+    // let player = capitalize(playerSelection);
+    //computerSelection = getComputerChoice();
 
-    let winAlert = `You Win! ${player} beats ${computerSelection}`;
-    let loseAlert = `You Lose. ${computerSelection} beats ${player}`; 
+    let winAlert = `You Win! ${playerSelection} beats ${computerSelection}`;
+    let loseAlert = `You Lose. ${computerSelection} beats ${playerSelection}`; 
     let tieAlert = "You Tied, both a pair of Not-Winners I Guess";
     let badChoice = "Choose 'Rock', 'Paper' or 'Scissors' idiot. Not that hard";
 
-    if (player == "Rock" && computerSelection == "Scissors") {
+    if ( (playerSelection == "Rock" && computerSelection == "Scissors") || 
+    (playerSelection == "Paper" && computerSelection == "Rock") || 
+    (playerSelection == "Scissors" && computerSelection == "Paper")) {
+        
         winRound = true;
+        console.log(winAlert);
         return winAlert;
-    } else if (player == "Rock" && computerSelection == "Paper") {
-        winRound = false;
-        return loseAlert;
-    } else if (player == "Rock" && computerSelection == "Rock") {
+
+    } else if ((playerSelection == "Rock" && computerSelection == "Paper") || 
+    (playerSelection == "Paper" && computerSelection == "Paper") || 
+    (playerSelection == "Scissors" && computerSelection == "Scissors")) {
+
         winRound = null;
         console.log(tieAlert);
-        return playRound();
-    } else if (player == "Paper" && computerSelection == "Scissors") {
-        winRound = false;
-        return loseAlert;
-    } else if (player == "Paper" && computerSelection == "Rock") {
-        winRound = true;
-        return winAlert;
-    }else if (player == "Paper" && computerSelection == "Paper") {
-        winRound = null;
-        console.log(tieAlert);
-        return playRound();
-    } else if (player == "Scissors" && computerSelection == "Scissors") {
-        winRound = null;
-        console.log(tieAlert);
-        return playRound();
-    }else if (player == "Scissors" && computerSelection == "Paper") {
-        winRound = true;
-        return winAlert;
-    } else if (player == "Scissors" && computerSelection == "Rock") {
-        winRound = false;
-        return loseAlert;
+        return tieAlert;
+
     } else {
-        winRound = null;
-        return badChoice;
+
+        winRound = false;
+        console.log(loseAlert);
+        return loseAlert;
+
     }
+
+
+    // if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    //     winRound = true;
+    //     console.log(winAlert);
+    //     return winAlert;
+    // } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+    //     winRound = false;
+    //     console.log(loseAlert);
+    //     return loseAlert;
+    // } else if (playerSelection == "Rock" && computerSelection == "Rock") {
+    //     winRound = null;
+    //     console.log(tieAlert);
+    //     return playRound();
+    // } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+    //     winRound = false;
+    //     console.log(loseAlert);
+    //     return loseAlert;
+    // } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+    //     winRound = true;
+    //     console.log(winAlert);
+    //     return winAlert;
+    // }else if (playerSelection == "Paper" && computerSelection == "Paper") {
+    //     winRound = null;
+    //     console.log(tieAlert);
+    //     return playRound();
+    // } else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
+    //     winRound = null;
+    //     console.log(tieAlert);
+    //     return playRound();
+    // }else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+    //     winRound = true;
+    //     console.log(winAlert);
+    //     return winAlert;
+    // } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    //     winRound = false;
+    //     console.log(loseAlert);
+    //     return loseAlert;
+    // } else {
+    //     winRound = null;
+    //     return badChoice;
+    // }
 
    
 
